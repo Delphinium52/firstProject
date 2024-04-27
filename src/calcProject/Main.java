@@ -17,6 +17,7 @@ public class Main {
         String c = sc.next();
         // 입력 받은값 중 첫번째 값 char 타입으로 변수 저장
         char d = c.charAt(0);
+        // 조건문을 통한 사칙연산 수행
         int result = switch (d) {
             case '+' -> a + b;
             case '-' -> a - b;
@@ -24,7 +25,7 @@ public class Main {
             case '/' -> a / b;
             default -> 0;
         };
-
+        // 조건문을 통해 나온값 출력
         System.out.println("결과 : " + result);
     }
 }
