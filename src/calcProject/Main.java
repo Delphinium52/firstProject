@@ -1,15 +1,16 @@
 package calcProject;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
+    private static final int MAX_COUNT = 10;
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        //무한 반복 탈출구
-        loopout:
-        //무한 반복
-        for(;;){
-
+        int [] arr = new int[MAX_COUNT];
+        int count =0;
+        for (int i = 1;; i++) {
             System.out.print("첫 번째 숫자 입력 : ");
             //스캐너를 이용한 첫번째 정수 입력 받기
             int a = sc.nextInt();
@@ -30,18 +31,30 @@ public class Main {
                 case '/' -> a / b;
                 default -> 0;
             };
-            // 조건문을 통해 나온값 출력
             System.out.println("결과 : " + result);
+            if(count < MAX_COUNT) {
+                arr[count++] = result;
 
-            System.out.println("더 계산 하시겠습니까 (exit 입력시 종료)");
-            //탈출 문구 입력 받기
-            String loopbreak = sc.next();
-            //제대로 입력하면 탈출하게 하는 조건문
-            if(loopbreak.equals("exit")){
-                break loopout;
+            }else{
+                for(int j=0;j<MAX_COUNT-1;j++){
+                    arr[j] = arr[j+1];
+                }
+                arr[MAX_COUNT-1] = result;
             }
 
-
+            System.out.print("그만? 0입력");
+            String str = sc.next();
+            if(str.equals("0")) {
+                break;
+            }
+        }
+        for (int i = 0; i < arr.length; i++) {
+            System.out.println((i+1)+"번째 : "+arr[i]);
         }
     }
 }
+//grep console
+//translation
+//nyan progress Bar
+//git tool box
+
