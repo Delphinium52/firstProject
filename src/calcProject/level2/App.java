@@ -8,7 +8,7 @@ public class App {
     public static void main(String[] args) throws Exception {
         // 객체 불러오기
         Calculator calc = new Calculator();
-        List<Double> resultArr = new ArrayList<Double>();
+        ArrayList<Double> resultArr = new ArrayList<Double>();
         Scanner sc = new Scanner(System.in);
         //무한 반복 시작
         for(;;){
@@ -23,12 +23,22 @@ public class App {
             // 입력받은 값으로 계산후 출력
             System.out.println(calc.calculate());
             resultArr.add(calc.calculate());
+            //첫 배열 삭제 처리
+            System.out.println("첫 데이터 삭제 (remove)");
+            if(sc.next().equals("remove")){
+                calc.removeResult(resultArr);
+            }
             System.out.println("더 계산하시겠습니까? (exit 입력시 종료)");
             String answer = sc.next();
             //종료 문자 입력이랑 같을 경우 종료
             if(answer.equals("exit")){
                 break;
             }
+        }
+        //배열 값 출력
+        System.out.println("저장된 값 출력");
+        for(Double d : resultArr){
+            System.out.println(d);
         }
     }
 }

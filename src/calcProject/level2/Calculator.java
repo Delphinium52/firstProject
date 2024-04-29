@@ -1,4 +1,7 @@
 package calcProject.level2;
+
+import java.util.ArrayList;
+
 //나눗셈 예외 사항 발생시 출력 클래스
 class BadException extends Exception {
     public BadException() {
@@ -22,10 +25,11 @@ public class Calculator {
         this.firstNum = num1;
         this.secondNum = num2;
     }
-    //지우기
-    public void removeResult(){
 
-    };
+    // 연산결과 제일 앞의 데이터 삭제
+    public void removeResult(ArrayList<Double> list){
+           list.remove(0);
+    }
     // 사칙연산 메서드
     public double calculate() throws BadException {
 
