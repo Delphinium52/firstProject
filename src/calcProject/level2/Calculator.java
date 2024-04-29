@@ -14,7 +14,16 @@ public class Calculator {
     private char operate;
     private int firstNum;
     private int secondNum;
-    private double result = 0;
+    private double result;
+    private ArrayList<Double> list;
+    //생성자
+    public Calculator(char operate, int firstNum, int secondNum) {
+        this.operate = operate;
+        this.firstNum = firstNum;
+        this.secondNum = secondNum;
+        this.result = 0;
+        this.list = new ArrayList<>();
+    }
     //getter
     public double getResult(){
         return this.result;
@@ -27,12 +36,17 @@ public class Calculator {
     }
 
     // 연산결과 제일 앞의 데이터 삭제
-    public void removeResult(ArrayList<Double> list){
+    public void removeResult(){
            list.remove(0);
     }
-
+    //결과 리스트 출력
+    public void showlist(){
+        for(double d : list){
+            System.out.println(d);
+        }
+    }
     // 연산 결과를 출력하는 메서드
-    public void inquiryResult(ArrayList<Double> list){
+    public void inquiryResult(){
         for(double d : list){
             System.out.println(d);
         }
@@ -63,6 +77,7 @@ public class Calculator {
                 break;
 
         }
+        list.add(result);
         return result;
     }
 }
