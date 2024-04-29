@@ -11,13 +11,13 @@ class BadException extends Exception {
 
 public class Calculator {
     // 필드
-    private char operate;
-    private int firstNum;
-    private int secondNum;
-    private double result;
+    char operate;
+    int firstNum;
+    int secondNum;
+    double result;
     //static 객체마다 가질필요 없는 공용으로 사용되는 것일때 사용
     //리스트는 사칙연산과 원 넓이 둘다 사용하기 때문에 static을 이용해 생성할 필요 없이 사용하게 함
-    static private ArrayList<Double> list = new ArrayList<>();
+    ArrayList<Double> list;
 
     //생성자
     public Calculator(char operate, int firstNum, int secondNum) {
@@ -25,10 +25,12 @@ public class Calculator {
         this.firstNum = firstNum;
         this.secondNum = secondNum;
         this.result = 0;
+        this.list = new ArrayList<>();
     }
     public Calculator(int firstNum) {
         this.firstNum = firstNum;
         this.result = 0;
+        this.list = new ArrayList<>();
     }
     //getter
     public double getResult(){
@@ -43,16 +45,9 @@ public class Calculator {
     public void setitem(int num1){
         this.firstNum = num1;
     }
-
     // 연산결과 제일 앞의 데이터 삭제
     public void removeResult(){
            list.remove(0);
-    }
-    //결과 리스트 출력
-    public void showlist(){
-        for(double d : list){
-            System.out.println(d);
-        }
     }
     // 연산 결과를 출력하는 메서드
     public void inquiryResult(){
@@ -60,39 +55,8 @@ public class Calculator {
             System.out.println(d);
         }
     }
-    // 원의 넓이 구하는 메서드
-    public double calculateCircleArea(int firstNum) {
-        double re = Math.PI* (firstNum * firstNum);
-        list.add(re);
-        return re;
-    }
-    // 사칙연산 메서드
-    public double calculate() throws BadException {
 
+    public void calculate() throws BadException {
 
-        // 기호 입력에 따른 조건문
-        switch (operate) {
-            case '+':
-                result = firstNum + secondNum;
-                break;
-            case '-':
-                result = firstNum - secondNum;
-                break;
-            case '*':
-                result = (double)firstNum * secondNum;
-                break;
-            case  '/':
-                //나눗셈 예외 사항 발생시 예외 throw하기
-                if (firstNum == 0) {
-                    throw new BadException();
-
-                }else {
-                    result = (double)firstNum / secondNum;
-                }
-                break;
-
-        }
-        list.add(result);
-        return result;
     }
 }
