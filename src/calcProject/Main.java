@@ -8,8 +8,7 @@ public class Main {
     private static final int MAX_COUNT = 10;
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int [] arr = new int[MAX_COUNT];
-        int count =0;
+        ArrayList<Integer> arr = new ArrayList<>();
         for (int i = 1;; i++) {
             System.out.print("첫 번째 숫자 입력 : ");
             //스캐너를 이용한 첫번째 정수 입력 받기
@@ -32,29 +31,21 @@ public class Main {
                 default -> 0;
             };
             System.out.println("결과 : " + result);
-            if(count < MAX_COUNT) {
-                arr[count++] = result;
-
-            }else{
-                for(int j=0;j<MAX_COUNT-1;j++){
-                    arr[j] = arr[j+1];
-                }
-                arr[MAX_COUNT-1] = result;
+            arr.add(result);
+            System.out.println("가장 먼저 연산 결과를 삭제하시겠습니까?(remove 입력)");
+            if(sc.next().equals("remove")) {
+                arr.remove(0);
             }
-
-            System.out.print("그만? 0입력");
+            System.out.print("더계산하시겠습니까? (exit 입력시 종료)");
             String str = sc.next();
             if(str.equals("0")) {
                 break;
             }
         }
-        for (int i = 0; i < arr.length; i++) {
-            System.out.println((i+1)+"번째 : "+arr[i]);
+        for (int i = 0; i < arr.size(); i++) {
+            System.out.println((i+1)+"번째 : "+arr.get(i));
         }
     }
 }
-//grep console
-//translation
-//nyan progress Bar
-//git tool box
+
 
