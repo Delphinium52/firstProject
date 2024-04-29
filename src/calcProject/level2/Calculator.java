@@ -8,33 +8,46 @@ class BadException extends Exception {
 
 public class Calculator {
     // 필드
-    char operate;
-    int firstnum;
-    int secondnum;
-    // 사칙연산 메서드
-    public double calculate(char operate, int firstnum, int secondnum) throws BadException {
+    private char operate;
+    private int firstNum;
+    private int secondNum;
+    private double result = 0;
+    //getter
+    public double getResult(){
+        return this.result;
+    }
+    //setter
+    public void setitem(char operate, int num1, int num2){
         this.operate = operate;
-        this.firstnum = firstnum;
-        this.secondnum = secondnum;
-        double result = 0;
+        this.firstNum = num1;
+        this.secondNum = num2;
+    }
+    //지우기
+    public void removeResult(){
+
+    };
+    // 사칙연산 메서드
+    public double calculate() throws BadException {
+
+
         // 기호 입력에 따른 조건문
         switch (operate) {
             case '+':
-                result = firstnum + secondnum;
+                result = firstNum + secondNum;
                 break;
             case '-':
-                result = firstnum - secondnum;
+                result = firstNum - secondNum;
                 break;
             case '*':
-                result = firstnum * secondnum;
+                result = (double)firstNum * secondNum;
                 break;
             case  '/':
                 //나눗셈 예외 사항 발생시 예외 throw하기
-                if (firstnum == 0) {
+                if (firstNum == 0) {
                     throw new BadException();
 
                 }else {
-                    result = (double)firstnum / secondnum;
+                    result = (double)firstNum / secondNum;
                 }
                 break;
 
