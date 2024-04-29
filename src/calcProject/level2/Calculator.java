@@ -30,6 +30,13 @@ public class Calculator {
     public void removeResult(ArrayList<Double> list){
            list.remove(0);
     }
+
+    // 연산 결과를 출력하는 메서드
+    public void inquiryResult(ArrayList<Double> list){
+        for(double d : list){
+            System.out.println(d);
+        }
+    }
     // 사칙연산 메서드
     public double calculate() throws BadException {
 

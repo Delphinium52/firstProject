@@ -28,6 +28,11 @@ public class App {
             if(sc.next().equals("remove")){
                 calc.removeResult(resultArr);
             }
+            //저장된 값 출력
+            System.out.println("저장된 값을 보시겠습니까?(inquiry 입력)");
+            if(sc.next().equals("inquiry")){
+                calc.inquiryResult(resultArr);
+            }
             System.out.println("더 계산하시겠습니까? (exit 입력시 종료)");
             String answer = sc.next();
             //종료 문자 입력이랑 같을 경우 종료
