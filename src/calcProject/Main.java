@@ -36,14 +36,19 @@ public class Main {
             if(sc.next().equals("remove")) {
                 arr.remove(0);
             }
+            System.out.println("저장된 연산결과를 조회하시겠습니까?(inquiry 입력시 조회)");
+            if(sc.next().equals("inquiry")) {
+                for (int j = 0; j < arr.size(); j++) {
+                    System.out.println((j + 1) + "번째 : " + arr.get(j));
+                }
+            }
             System.out.print("더계산하시겠습니까? (exit 입력시 종료)");
             String str = sc.next();
-            if(str.equals("0")) {
+            if(str.equals("exit")) {
                 break;
             }
         }
-        for (int i = 0; i < arr.size(); i++) {
-            System.out.println((i+1)+"번째 : "+arr.get(i));
+
         }
     }
 }
