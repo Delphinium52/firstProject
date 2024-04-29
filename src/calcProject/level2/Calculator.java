@@ -15,7 +15,9 @@ public class Calculator {
     private int firstNum;
     private int secondNum;
     private double result;
-    private ArrayList<Double> list;
+    //static 객체마다 가질필요 없는 공용으로 사용되는 것일때 사용
+    //리스트는 사칙연산과 원 넓이 둘다 사용하기 때문에 static을 이용해 생성할 필요 없이 사용하게 함
+    static private ArrayList<Double> list = new ArrayList<>();
 
     //생성자
     public Calculator(char operate, int firstNum, int secondNum) {
@@ -23,7 +25,6 @@ public class Calculator {
         this.firstNum = firstNum;
         this.secondNum = secondNum;
         this.result = 0;
-        this.list = new ArrayList<>();
     }
     public Calculator(int firstNum) {
         this.firstNum = firstNum;
@@ -41,7 +42,6 @@ public class Calculator {
     }
     public void setitem(int num1){
         this.firstNum = num1;
-
     }
 
     // 연산결과 제일 앞의 데이터 삭제
