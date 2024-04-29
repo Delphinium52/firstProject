@@ -16,6 +16,7 @@ public class Calculator {
     private int secondNum;
     private double result;
     private ArrayList<Double> list;
+
     //생성자
     public Calculator(char operate, int firstNum, int secondNum) {
         this.operate = operate;
@@ -23,6 +24,10 @@ public class Calculator {
         this.secondNum = secondNum;
         this.result = 0;
         this.list = new ArrayList<>();
+    }
+    public Calculator(int firstNum) {
+        this.firstNum = firstNum;
+        this.result = 0;
     }
     //getter
     public double getResult(){
@@ -33,6 +38,10 @@ public class Calculator {
         this.operate = operate;
         this.firstNum = num1;
         this.secondNum = num2;
+    }
+    public void setitem(int num1){
+        this.firstNum = num1;
+
     }
 
     // 연산결과 제일 앞의 데이터 삭제
@@ -50,6 +59,12 @@ public class Calculator {
         for(double d : list){
             System.out.println(d);
         }
+    }
+    // 원의 넓이 구하는 메서드
+    public double calculateCircleArea(int firstNum) {
+        double re = Math.PI* (firstNum * firstNum);
+        list.add(re);
+        return re;
     }
     // 사칙연산 메서드
     public double calculate() throws BadException {
