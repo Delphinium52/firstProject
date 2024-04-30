@@ -44,7 +44,7 @@ public class App {
                     calc.calculate();
                     System.out.println("저장된 값");
                     //배열 저장값 출력
-                    calc.inquiryResult();
+                    calc.inquiryResult2();
                     break;
 
             }

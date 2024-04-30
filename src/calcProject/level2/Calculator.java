@@ -17,10 +17,12 @@ public class Calculator {
     public Calculator(int firstNum) {
         this.firstNum = firstNum;
         this.result = 0;
+        this.circle = new ArrayList<>();
         this.list = new ArrayList<>();
     }
     public void setOperation(ArithmeticCalculator operate) {
         this.operate = operate;
+        this.list = new ArrayList<>();
     }
     //getter
     public double getResult(){
@@ -37,6 +39,11 @@ public class Calculator {
     // 연산 결과를 출력하는 메서드
     public void inquiryResult(){
         for(double d : list){
+            System.out.println(d);
+        }
+    }
+    public void inquiryResult2(){
+        for(double d : circle){
             System.out.println(d);
         }
     }
@@ -62,6 +69,9 @@ public class Calculator {
                 setOperation(new DivideOperator());
                 answer= this.operate.operate(firstNum, secondNum);
                 break;
+            case '%':
+                setOperation(new ModOperator());
+                answer = this.operate.operate(firstNum, secondNum);
         }
         list.add(answer);
         return answer;
