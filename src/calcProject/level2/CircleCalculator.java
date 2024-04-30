@@ -8,8 +8,10 @@ public class CircleCalculator extends Calculator {
 
 
     // 원의 넓이 구하는 메서드
-    public void calculate() throws BadException{
+
+    public double calculate() {
         double re = Math.PI* (firstNum * firstNum);
-        this.list.add(re);
+        this.circle.add(re);
+        return re;
     }
 }

@@ -1,40 +1,32 @@
 package calcProject.level2;
 
-public class ArithmeticCalculator extends Calculator {
+public abstract class ArithmeticCalculator {
 
-    public ArithmeticCalculator(char operate, int firstNum, int secondNum) {
-        super(operate, firstNum, secondNum);
-
-    }
-
-    // 사칙연산 메서드
-    public void calculate() throws BadException {
+   public abstract double operate(int firstNum, int secondNum);
 
 
-        // 기호 입력에 따른 조건문
-        switch (operate) {
-            case '+':
-                result = firstNum + secondNum;
-                break;
-            case '-':
-                result = firstNum - secondNum;
-                break;
-            case '*':
-                result = (double)firstNum * secondNum;
-                break;
-            case  '/':
-                //나눗셈 예외 사항 발생시 예외 throw하기
-                if (firstNum == 0) {
-                    throw new BadException();
+//    public abstract double calculate(int fistNum1, int secondNum1);
+//    {
 
-                }else {
-                    result = (double)firstNum / secondNum;
-                }
-                break;
 
-        }
-        list.add(this.result);
-    }
+//        // 기호 입력에 따른 조건문
+//        switch (operate) {
+//            case '+':
+//                result = firstNum + secondNum;
+//                break;
+//            case '-':
+//                result = firstNum - secondNum;
+//                break;
+//            case '*':
+//                result = (double)firstNum * secondNum;
+//                break;
+//            case  '/':
+//                result = (double)firstNum / secondNum;
+//                break;
+
+//        }
+//        list.add(this.result);
+//    }
 
 
 

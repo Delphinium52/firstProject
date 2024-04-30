@@ -8,7 +8,6 @@ public class App {
     public static void main(String[] args) throws Exception {
         // 객체 불러오기
         CircleCalculator calc = new CircleCalculator(2);
-        ArithmeticCalculator calc2  =new ArithmeticCalculator('+',1,2);
         Scanner sc = new Scanner(System.in);
         //무한 반복 시작
         for(;;){
@@ -21,18 +20,18 @@ public class App {
                     int num2 = sc.nextInt();
                     System.out.print("사칙연산 기호를 입력하세요 : ");
                     char operator = sc.next().charAt(0);
-                    calc2.setitem(operator, num1, num2);
+
                     // 입력값 계산
-                    calc2.calculate();
+                    calc.calculate(operator, num1, num2);
                     //첫 배열 삭제 처리
                     System.out.println("첫 데이터 삭제 (remove)");
                     if(sc.next().equals("remove")){
-                        calc2.removeResult();
+                        calc.removeResult();
                     }
                     //저장된 값 출력
                     System.out.println("저장된 값을 보시겠습니까?(inquiry 입력)");
                     if(sc.next().equals("inquiry")){
-                        calc2.inquiryResult();
+                        calc.inquiryResult();
                     }
                     break;
 
@@ -40,7 +39,7 @@ public class App {
                     //원 넓이 구하기
                     System.out.print("반지름을 입력해주세요 : ");
                     int num = sc.nextInt();
-                    calc.setitem(num);
+//                    calc.setitem(num);
                     //넓이 계산
                     calc.calculate();
                     System.out.println("저장된 값");
